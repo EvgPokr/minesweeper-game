@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minesweeper</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Простая игра Сапёр (Minesweeper) в браузере" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar" role="banner">
+      <h1 class="title" aria-live="polite">Сапёр</h1>
+      <div class="controls" role="group" aria-label="Управление игрой">
+        <label for="size">Размер:</label>
+        <select id="size" aria-label="Размер поля">
+          <option value="8x8x10">8x8 • 10 мин</option>
+          <option value="10x10x15">10x10 • 15 мин</option>
+          <option value="12x12x25">12x12 • 25 мин</option>
+        </select>
+        <button id="restart" aria-label="Новая игра">🔄 Новая</button>
+        <button id="toggleAudio" aria-label="Звук включен" title="Звук: вкл">🔊</button>
+        <button id="helpBtn" aria-label="Как играть" title="Как играть">Инструкция</button>
+        <span id="status" class="status" aria-live="polite"></span>
+        <div class="stats" aria-live="polite">
+          ⏱ <span id="timer">0</span>s
+          • 🚩 <span id="flagsLeft">0</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div id="banner" class="banner" role="status" aria-live="polite" style="display:none"></div>
+      <div id="board" class="board" role="grid" aria-label="Поле сапёра" tabindex="0"></div>
+      <p class="hint">ЛКМ — открыть, ПКМ — флаг. На тач-устройствах длительное нажатие — флаг.</p>
+
+      <div id="helpModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="helpTitle" style="display:none">
+        <div class="modal-card">
+          <div class="modal-header">
+            <h2 id="helpTitle">Как играть в Сапёра</h2>
+            <button id="helpClose" aria-label="Закрыть">✖</button>
+          </div>
+            <p><strong>🎮 Начало игры</strong></p>
+            <ul>
+              <li>Нажмите на любую закрытую клетку — первая всегда безопасна.</li>
+              <li>После этого будут появляться числа.</li>
+            </ul>
+
+            <p><strong>🔢 Что означают числа</strong></p>
+            <ul>
+              <li>Число на открытой клетке показывает, сколько мин спрятано вокруг неё (в 8 соседних клетках).</li>
+              <li>Используйте эти подсказки, чтобы понять, где мины.</li>
+            </ul>
+
+            <p><strong>🚩 Флажки</strong></p>
+            <ul>
+              <li>ПКМ (правая кнопка мыши) по закрытой клетке → поставить или снять флажок.</li>
+              <li>На сенсорных экранах — сделайте долгий тап.</li>
+              <li>Ставьте флажки там, где уверены, что под клеткой мина.</li>
+            </ul>
+
+            <p><strong>🎯 Цель игры</strong></p>
+            <ul>
+              <li>Постепенно открывайте клетки и избегайте мин.</li>
+              <li>Чтобы выиграть — нужно открыть все безопасные клетки.</li>
+            </ul>
+
+            <p><strong>💡 Советы для новичков</strong></p>
+            <ul>
+              <li>Начинайте открывать клетки с углов и краёв.</li>
+              <li>Используйте числа, чтобы логически рассуждать, где мины.</li>
+              <li>Ставьте флажки только там, где уверены — так будет проще ориентироваться.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
