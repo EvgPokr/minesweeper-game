@@ -153,6 +153,130 @@ button:hover { border-color: var(--accent); color: var(--accent); }
   .hint { display: block; }
 }
 
+/* Мобильная оптимизация для топбара */
+@media (max-width: 768px) {
+  .topbar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }
+  
+  .title {
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .controls {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+  }
+  
+  .controls label {
+    display: none; /* Скрываем подпись "Размер:" на мобильных */
+  }
+  
+  .controls select {
+    flex: 1;
+    min-width: 120px;
+    max-width: 140px;
+  }
+  
+  .controls button {
+    padding: 6px 8px;
+    font-size: 14px;
+  }
+  
+  #toggleAudio {
+    width: 36px;
+    padding: 6px;
+  }
+  
+  #helpBtn {
+    padding: 6px 10px;
+  }
+  
+  .stats {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  
+  .status {
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    order: 10; /* Статус в конце */
+  }
+}
+
+/* Дополнительная оптимизация для очень маленьких экранов */
+@media (max-width: 480px) {
+  .topbar {
+    gap: 8px;
+    padding: 10px;
+  }
+  
+  .title {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+  
+  /* Первый ряд: селект размера и кнопка "Новая" */
+  .controls-row-1 {
+    display: flex;
+    gap: 6px;
+    width: 100%;
+  }
+  
+  .controls select {
+    flex: 2;
+    min-width: auto;
+    max-width: none;
+  }
+  
+  .controls #restart {
+    flex: 1;
+    white-space: nowrap;
+  }
+  
+  /* Второй ряд: кнопки звука, инструкция и статистика */
+  .controls-row-2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+  
+  .controls button {
+    padding: 4px 6px;
+    font-size: 12px;
+  }
+  
+  #toggleAudio {
+    width: 32px;
+    padding: 4px;
+  }
+  
+  #helpBtn {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+  
+  .stats {
+    font-size: 12px;
+    margin-left: auto;
+  }
+}
+
 
 
 
