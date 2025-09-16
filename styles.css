@@ -154,7 +154,7 @@ button:hover { border-color: var(--accent); color: var(--accent); }
 }
 
 /* Мобильная оптимизация для топбара */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px), (max-device-width: 768px) {
   .topbar {
     flex-direction: column;
     gap: 12px;
@@ -165,6 +165,11 @@ button:hover { border-color: var(--accent); color: var(--accent); }
     font-size: 18px;
     text-align: center;
     width: 100%;
+  }
+  
+  .title::after {
+    content: " 📱";
+    opacity: 0.7;
   }
   
   .controls {
@@ -212,7 +217,7 @@ button:hover { border-color: var(--accent); color: var(--accent); }
 }
 
 /* Дополнительная оптимизация для очень маленьких экранов */
-@media (max-width: 480px) {
+@media screen and (max-width: 480px), (max-device-width: 480px) {
   .topbar {
     gap: 8px;
     padding: 10px;
